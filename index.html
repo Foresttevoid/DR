@@ -9,161 +9,178 @@
     label { display: block; margin: 8px 0; cursor: pointer; }
     button { padding: 12px 28px; background: #4CAF50; color: white; border: none; font-size: 16px; cursor: pointer; border-radius: 6px; }
     button:hover { background: #45a049; }
-    #video-section { display: none; margin-top: 20px; }
     video { width: 100%; border-radius: 8px; }
   </style>
 </head>
 <body>
 
-  <!-- ОПРОС -->
-  <div id="quiz-section">
-    <h1>Пройди опрос</h1>
+<audio id="bgMusic" loop>
+  <source src="музыка.mp3" type="audio/mp3">
+</audio>
 
-    <div class="question">
-      <p><b>1. Когда ты узнал настоящее значение жеста "фак"?</b></p>
-      <label><input type="radio" name="q1"> В деревне в 8 лет.</label>
-      <label><input type="radio" name="q1"> Дома в 6 лет.</label>
-      <label><input type="radio" name="q1"> Во дворе в 11 лет.</label>
-    </div>
+<!-- СТАРТ -->
+<div id="start-section" style="text-align:center; background:rgba(255,255,255,0.9); padding:40px; border-radius:12px;">
+  <img src="старт.jpg" style="width:100%; border-radius:8px; margin-bottom:20px;">
+  <h1>сядь на кукурузку к лучшей жизни 🎮</h1>
+  <button onclick="beginQuest()">сесть на кукурузку →</button>
+</div>
 
-    <div class="question">
-      <p><b>2. Когда ты был в деревне в возрасте 11 лет, ты украл *** у нашей тёти. Что это было?</b></p>
-      <label><input type="radio" name="q2"> Маленького цыплёнка.</label>
-      <label><input type="radio" name="q2"> Пирожки с окна.</label>
-      <label><input type="radio" name="q2"> Пугало из поля.</label>
-    </div>
+<!-- ОПРОС -->
+<div id="quiz-section" style="display:none;">
+  <h1>Пройди опрос</h1>
 
-    <div class="question">
-      <p><b>3. С сетью интернет ты познакомился через что?</b></p>
-      <label><input type="radio" name="q3"> ВК в 8 лет.</label>
-      <label><input type="radio" name="q3"> Ютуб в 6 лет.</label>
-      <label><input type="radio" name="q3"> Просто через яндекс в 7 лет.</label>
-    </div>
-
-    <div class="question">
-      <p><b>4. На твоё 15 летие...</b></p>
-      <label><input type="radio" name="q4"> Тебе подарили кусок хозяйственного мыла от прабабушки.</label>
-      <label><input type="radio" name="q4"> Погнали в магазин за продуктами вечером.</label>
-      <label><input type="radio" name="q4"> Испугали до обморока.</label>
-    </div>
-
-    <div class="question">
-      <p><b>5. С детства ты ненавидел этот случай, однако совсем забыл про него. Что случилось в 2019?</b></p>
-      <label><input type="radio" name="q5"> Летом подрал пол ноги об железную пластину.</label>
-      <label><input type="radio" name="q5"> Забыл закрыть загон и выпустил овец и барана, который за мной гнался.</label>
-      <label><input type="radio" name="q5"> Согласился украсть батон из ларька.</label>
-    </div>
-
-    <div class="question">
-      <p><b>6. Когда тебе было 3 года, бабушка что-то сделала, перепутав тебя со мной.</b></p>
-      <label><input type="radio" name="q6"> Проколола уши без ведома мамы и тёти.</label>
-      <label><input type="radio" name="q6"> Купила юбки и сфотографировала тебя в них.</label>
-      <label><input type="radio" name="q6"> Отвела к своим подругам, хвалясь о "девочке".</label>
-    </div>
-
-    <div class="question">
-      <p><b>7. Теперь вспомни, что ты постоянно забываешь сделать по сей день.</b></p>
-      <label><input type="radio" name="q7"> Покушать.</label>
-      <label><input type="radio" name="q7"> Покормить животинок.</label>
-      <label><input type="radio" name="q7"> Выбросить просрочку.</label>
-    </div>
-
-    <div class="question">
-      <p><b>8. В один из дней летних каникул, в 2022 году, моя тётя — твоя мама — сказала тебе нечто важное.</b></p>
-      <label><input type="radio" name="q8"> Что ты приёмный.</label>
-      <label><input type="radio" name="q8"> Что ты разбил голову, не заметил этого.</label>
-      <label><input type="radio" name="q8"> Случайно засушил рыбок.</label>
-    </div>
-
-    <button onclick="startGame()">Готово →</button>
-    <img src="апт.jpg" style="width: 100%; margin-top: 20px; border-radius: 8px;">
+  <div class="question">
+    <p><b>1. Когда ты узнал настоящее значение жеста "фак"?</b></p>
+    <label><input type="radio" name="q1"> В деревне в 8 лет.</label>
+    <label><input type="radio" name="q1"> Дома в 6 лет.</label>
+    <label><input type="radio" name="q1"> Во дворе в 11 лет.</label>
   </div>
+
+  <div class="question">
+    <p><b>2. Когда ты был в деревне в возрасте 11 лет, ты украл *** у нашей тёти. Что это было?</b></p>
+    <label><input type="radio" name="q2"> Маленького цыплёнка.</label>
+    <label><input type="radio" name="q2"> Пирожки с окна.</label>
+    <label><input type="radio" name="q2"> Пугало из поля.</label>
+  </div>
+
+  <div class="question">
+    <p><b>3. С сетью интернет ты познакомился через что?</b></p>
+    <label><input type="radio" name="q3"> ВК в 8 лет.</label>
+    <label><input type="radio" name="q3"> Ютуб в 6 лет.</label>
+    <label><input type="radio" name="q3"> Просто через яндекс в 7 лет.</label>
+  </div>
+
+  <div class="question">
+    <p><b>4. На твоё 15 летие...</b></p>
+    <label><input type="radio" name="q4"> Тебе подарили кусок хозяйственного мыла от прабабушки.</label>
+    <label><input type="radio" name="q4"> Погнали в магазин за продуктами вечером.</label>
+    <label><input type="radio" name="q4"> Испугали до обморока.</label>
+  </div>
+
+  <div class="question">
+    <p><b>5. С детства ты ненавидел этот случай, однако совсем забыл про него. Что случилось в 2019?</b></p>
+    <label><input type="radio" name="q5"> Летом подрал пол ноги об железную пластину.</label>
+    <label><input type="radio" name="q5"> Забыл закрыть загон и выпустил овец и барана, который за мной гнался.</label>
+    <label><input type="radio" name="q5"> Согласился украсть батон из ларька.</label>
+  </div>
+
+  <div class="question">
+    <p><b>6. Когда тебе было 3 года, бабушка что-то сделала, перепутав тебя со мной.</b></p>
+    <label><input type="radio" name="q6"> Проколола уши без ведома мамы и тёти.</label>
+    <label><input type="radio" name="q6"> Купила юбки и сфотографировала тебя в них.</label>
+    <label><input type="radio" name="q6"> Отвела к своим подругам, хвалясь о "девочке".</label>
+  </div>
+
+  <div class="question">
+    <p><b>7. Теперь вспомни, что ты постоянно забываешь сделать по сей день.</b></p>
+    <label><input type="radio" name="q7"> Покушать.</label>
+    <label><input type="radio" name="q7"> Покормить животинок.</label>
+    <label><input type="radio" name="q7"> Выбросить просрочку.</label>
+  </div>
+
+  <div class="question">
+    <p><b>8. В один из дней летних каникул, в 2022 году, моя тётя — твоя мама — сказала тебе нечто важное.</b></p>
+    <label><input type="radio" name="q8"> Что ты приёмный.</label>
+    <label><input type="radio" name="q8"> Что ты разбил голову, не заметил этого.</label>
+    <label><input type="radio" name="q8"> Случайно засушил рыбок.</label>
+  </div>
+  <button onclick="startGame()">Готово →</button>
+  <img src="апт.jpg" style="width: 100%; margin-top: 20px; border-radius: 8px;">
+</div>
+
 <!-- ГОЛОВОЛОМКА -->
-  <div id="game-section" style="display:none; background:white; padding:24px; border-radius:12px; text-align:center;">
-    <h2>🎨 Найди отличающийся цвет!</h2>
-    <div id="level-info" style="font-size:20px; color:#555; margin-bottom:10px;"></div>
-    <div id="message" style="font-size:18px; font-weight:bold; min-height:28px; margin:10px 0;"></div>
-    <div id="grid" style="display:inline-grid; gap:8px; margin:20px auto;"></div>
-  </div>
+<div id="game-section" style="display:none; background:white; padding:24px; border-radius:12px; text-align:center;">
+  <h2>🎨 Найди отличающийся цвет!</h2>
+  <div id="level-info" style="font-size:20px; color:#555; margin-bottom:10px;"></div>
+  <div id="message" style="font-size:18px; font-weight:bold; min-height:28px; margin:10px 0;"></div>
+  <div id="grid" style="display:inline-grid; gap:8px; margin:20px auto;"></div>
+</div>
 
-  <!-- ВИДЕО -->
-  <div id="video-section" style="display:none; margin-top:20px;">
-    <h2>Смотри видео!</h2>
-    <video controls style="width:100%; border-radius:8px;">
-      <source src="video.mp4" type="video/mp4">
-    </video>
-  </div>
+<!-- ВИДЕО -->
+<div id="video-section" style="display:none; margin-top:20px;">
+  <h2>Смотри видео!</h2>
+  <video controls>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+</div>
 
-  <script>
-    const levels = [
-      { size: 2, diff: 60 },
-      { size: 3, diff: 45 },
-      { size: 4, diff: 35 },
-      { size: 5, diff: 25 },
-      { size: 5, diff: 15 }
-    ];
-    let currentLevel = 0;
+<script>
+  const levels = [
+    { size: 2, diff: 60 },
+    { size: 3, diff: 45 },
+    { size: 4, diff: 35 },
+    { size: 5, diff: 25 },
+    { size: 5, diff: 15 }
+  ];
+  let currentLevel = 0;
 
-    function startGame() {
-      document.getElementById("quiz-section").style.display = "none";
-      document.getElementById("game-section").style.display = "block";
-      loadLevel();
-    }
+  function beginQuest() {
+    document.getElementById("start-section").style.display = "none";
+    document.getElementById("quiz-section").style.display = "block";
+    document.getElementById("bgMusic").play();
+  }
 
-    function loadLevel() {
-      const level = levels[currentLevel];
-      document.getElementById("level-info").textContent = "Уровень " + (currentLevel + 1) + " из " + levels.length;
-      document.getElementById("message").textContent = "";
+  function startGame() {
+    document.getElementById("quiz-section").style.display = "none";
+    document.getElementById("game-section").style.display = "block";
+    loadLevel();
+  }
 
-      const grid = document.getElementById("grid");
-      grid.style.gridTemplateColumns = "repeat(" + level.size + ", 80px)";
-      grid.innerHTML = "";
+  function loadLevel() {
+    const level = levels[currentLevel];
+    document.getElementById("level-info").textContent = "Уровень " + (currentLevel + 1) + " из " + levels.length;
+    document.getElementById("message").textContent = "";
 
-      const r = Math.floor(Math.random() * 156) + 50;
-      const g = Math.floor(Math.random() * 156) + 50;
-      const b = Math.floor(Math.random() * 156) + 50;
+    const grid = document.getElementById("grid");
+    grid.style.gridTemplateColumns = "repeat(" + level.size + ", 80px)";
+    grid.innerHTML = "";
 
-      const dr = Math.min(255, r + level.diff);
-      const dg = Math.min(255, g + level.diff);
-      const db = Math.min(255, b + level.diff);
+    const r = Math.floor(Math.random() * 156) + 50;
+    const g = Math.floor(Math.random() * 156) + 50;
+    const b = Math.floor(Math.random() * 156) + 50;
 
-      const total = level.size * level.size;
-      const oddIndex = Math.floor(Math.random() * total);
+    const dr = Math.min(255, r + level.diff);
+    const dg = Math.min(255, g + level.diff);
+    const db = Math.min(255, b + level.diff);
 
-      for (let i = 0; i < total; i++) {
-        const cell = document.createElement("button");
-        cell.style.width = "80px";
-        cell.style.height = "80px";
-        cell.style.borderRadius = "8px";
-        cell.style.border = "none";
-        cell.style.cursor = "pointer";
-        if (i === oddIndex) {
-          cell.style.background = "rgb(" + dr + "," + dg + "," + db + ")";
-          cell.onclick = function() { win(); };
-        } else {
-          cell.style.background = "rgb(" + r + "," + g + "," + b + ")";
-          cell.onclick = function() { fail(); };
-        }
-        grid.appendChild(cell);
-      }
-    }
+    const total = level.size * level.size;
+    const oddIndex = Math.floor(Math.random() * total);
 
-    function win() {
-      currentLevel++;
-      if (currentLevel >= levels.length) {
-        document.getElementById("game-section").style.display = "none";
-        document.getElementById("video-section").style.display = "block";
+    for (let i = 0; i < total; i++) {
+      const cell = document.createElement("button");
+      cell.style.width = "80px";
+      cell.style.height = "80px";
+      cell.style.borderRadius = "8px";
+      cell.style.border = "none";
+      cell.style.cursor = "pointer";
+      if (i === oddIndex) {
+        cell.style.background = "rgb(" + dr + "," + dg + "," + db + ")";
+        cell.onclick = function() { win(); };
       } else {
-        document.getElementById("message").textContent = "✅ Правильно! Следующий уровень...";
-        setTimeout(loadLevel, 1000);
+        cell.style.background = "rgb(" + r + "," + g + "," + b + ")";
+        cell.onclick = function() { fail(); };
       }
+      grid.appendChild(cell);
     }
+  }
 
-    function fail() {
-      document.getElementById("message").textContent = "❌ Не то! Попробуй снова...";
+  function win() {
+    currentLevel++;
+    if (currentLevel >= levels.length) {
+      document.getElementById("bgMusic").pause();
+      document.getElementById("game-section").style.display = "none";
+      document.getElementById("video-section").style.display = "block";
+    } else {
+      document.getElementById("message").textContent = "✅ Правильно! Следующий уровень...";
       setTimeout(loadLevel, 1000);
     }
-  </script>
+  }
+
+  function fail() {
+    document.getElementById("message").textContent = "❌ Не то! Попробуй снова...";
+    setTimeout(loadLevel, 1000);
+  }
+</script>
 
 </body>
 </html>
